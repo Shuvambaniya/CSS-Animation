@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative CSS Transformations with Local Images</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f0f0f0, #d0d0d0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            font-size: 1.2em;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .box::after {
+            content: attr(data-text);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+
+        @keyframes rotateAnimation {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes scaleAnimation {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+
+        @keyframes translateAnimation {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        @keyframes skewAnimation {
+            0%, 100% { transform: skew(0deg, 0deg); }
+            50% { transform: skew(20deg, 10deg); }
+        }
+
+        @keyframes rotateScaleAnimation {
+            0%, 100% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+        }
+
+        @keyframes rotateTranslateAnimation {
+            0%, 100% { transform: rotate(0) translate(0, 0); }
+            50% { transform: rotate(180deg) translate(50px, 50px); }
+        }
+
+        @keyframes scaleSkewAnimation {
+            0%, 100% { transform: scale(1) skew(0deg, 0deg); }
+            50% { transform: scale(1.2) skew(20deg, 10deg); }
+        }
+
+        .rotate {
+            background-image: url('rotate.jpg');
+            animation: rotateAnimation 4s linear infinite;
+        }
+
+        .scale {
+            background-image: url('scale.jpg');
+            animation: scaleAnimation 3s ease-in-out infinite;
+        }
+
+        .translate {
+            background-image: url('translate.jpg');
+            animation: translateAnimation 2s ease-in-out infinite alternate;
+        }
+
+        .skew {
+            background-image: url('skew.jpg');
+            animation: skewAnimation 2s ease-in-out infinite alternate;
+        }
+
+        .rotate-scale {
+            background-image: url('rotate-scale.jpg');
+            animation: rotateScaleAnimation 3s ease-in-out infinite;
+        }
+
+        .rotate-translate {
+            background-image: url('rotate-translate.jpg');
+            animation: rotateTranslateAnimation 3s ease-in-out infinite;
+        }
+
+        .scale-skew {
+            background-image: url('scale-skew.jpg');
+            animation: scaleSkewAnimation 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML animation using @keyframes with different animation attributes and shorthand property of animation.</h1>
+    <div class="container">
+        <div class="box rotate"></div>
+        <div class="box scale" ></div>
+        <div class="box translate"></div>
+        <div class="box skew" ></div>
+        <div class="box rotate-scale"></div>
+        <div class="box rotate-translate"></div>
+        <div class="box scale-skew"></div>
+    </div>
+</body>
+</html>
